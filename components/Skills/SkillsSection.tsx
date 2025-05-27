@@ -1,68 +1,51 @@
 import styles from './SkillsSection.module.scss'
 import { motion } from 'framer-motion'
-import { FaWaveSquare, FaRandom, FaHeadphones, FaChartLine, FaUsers, FaRetweet } from 'react-icons/fa'
 
 const skills = [
   {
-    icon: <FaWaveSquare />,
-    label: "Smooth Transitions",
-    tooltip: "Seamless, on-beat crossfades and blend mastery."
+    title: "DJ Performance",
+    desc: "Expert beatmatching, seamless transitions, and crowd reading using Pioneer CDJs, vinyl, and digital decks."
   },
   {
-    icon: <FaChartLine />,
-    label: "Harmonic Mixing",
-    tooltip: "Advanced harmonic blends using Camelot wheel."
+    title: "Music Production",
+    desc: "Original track creation, remixing, and edits with Ableton Live, FL Studio, and industry plugins."
   },
   {
-    icon: <FaRetweet />,
-    label: "Looping & FX",
-    tooltip: "Live looping, stutter, and creative FX usage."
-  },
-  {
-    icon: <FaRandom />,
-    label: "Build/Drop Mastery",
-    tooltip: "Dynamic build-ups and drops for max energy."
-  },
-  {
-    icon: <FaUsers />,
-    label: "Crowd Reading",
-    tooltip: "Intuitive, real-time reading of dancefloor energy."
-  },
-  {
-    icon: <FaHeadphones />,
-    label: "Live Mashups",
-    tooltip: "On-the-fly mashups and edits, always in key."
+    title: "Live Edits & FX",
+    desc: "On-the-fly remixing, effects, and mashups using MIDI controllers and real-time processing."
   }
 ]
 
 export default function SkillsSection() {
   return (
     <section className={styles.skills} id="skills">
-      <h2 className={styles.title}>Technical Skills</h2>
-      <div className={styles.visuals}>
-        <div className={styles.camelot}>
-          <img src="/camelot-wheel.png" alt="Camelot Wheel" />
-        </div>
-        <div className={styles.energy}>
-          <img src="/energy-curve.png" alt="Energy Curve Graph" />
-        </div>
-      </div>
-      <div className={styles.grid}>
-        {skills.map((skill, idx) => (
-          <motion.div
-            className={styles.skill}
-            key={skill.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.08 }}
-          >
-            <div className={styles.icon} data-tooltip={skill.tooltip}>
-              {skill.icon}
-            </div>
-            <span>{skill.label}</span>
-          </motion.div>
-        ))}
+      <div className={styles.content}>
+        <motion.div
+          className={styles.left}
+          initial={{ x: -60, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <h2 className={styles.title}>Technical Skills</h2>
+          <p className={styles.text}>
+            As a DJ and producer, I blend technical mastery with creative intuition. My expertise spans seamless beatmatching, live remixing, and dynamic set curation, using industry-standard tools like Pioneer CDJs, Ableton Live, and Serato DJ Pro. Whether performing on stage or editing in the studio, I prioritize crisp sound quality, smooth transitions, and engaging live experiences.
+          </p>
+        </motion.div>
+        <motion.div
+          className={styles.right}
+          initial={{ x: 60, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <div className={styles.cards}>
+            {skills.map((skill, i) => (
+              <motion.div key={i} className={styles.card} whileHover={{ scale: 1.04 }}>
+                <h3>{skill.title}</h3>
+                <p>{skill.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
