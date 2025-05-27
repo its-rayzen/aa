@@ -1,0 +1,80 @@
+.hero {
+  min-height: 100vh;
+  background: #0D0D0D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo {
+  font-size: 5rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-shadow: 0 0 32px #fff, 0 0 8px #fff;
+  font-weight: 800;
+}
+
+.tagline {
+  color: #E0E0E0;
+  font-size: 0.9rem;
+  margin-top: 0px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+.buttons {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.glowBtn {
+  padding: 0.85em 2.1em;
+  border: none;
+  border-radius: 32px;
+  font-size: 1.15rem;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 0 8px #fff, 0 0 24px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  outline: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  filter: drop-shadow(0 0 8px #fff);
+}
+
+.scrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+}
+
+.arrow {
+  font-size: 2.5rem;
+  color: #fff;
+  filter: drop-shadow(0 0 8px #fff);
+  opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2.8rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+  }
+  
+  .glowBtn {
+    font-size: 1rem;
+    padding: 0.7em 1.3em;
+  }
+}

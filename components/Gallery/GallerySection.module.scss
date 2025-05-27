@@ -1,0 +1,87 @@
+.gallery {
+  background: #0D0D0D;
+  color: #E0E0E0;
+  height: 100vh;
+}
+.title {
+  font-size: 2.1rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 12px #fff, 0 0 3px #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.filters button {
+  background: #161616;
+  color: #fff;
+  border: 1.5px solid #fff6;
+  border-radius: 18px;
+  padding: 5px 18px;
+  font-size: 1.03rem;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: box-shadow 0.16s, background 0.16s;
+  box-shadow: 0 0 8px #fff2;
+}
+.filters button:hover, .filters .active, .filters button:focus {
+  background: #1a1a1a;
+  box-shadow: 0 0 18px #fff, 0 0 8px #fff;
+  border-color: #fff;
+  color: #fff;
+}
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.imgCell {
+  aspect-ratio: 1/1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  box-shadow: 0 0 10px #fff2;
+  border: 2.5px solid #fff2;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.15s, border 0.15s;
+}
+.imgCell:hover, .imgCell:focus {
+  box-shadow: 0 0 22px #fff, 0 0 8px #fff;
+  border: 2.5px solid #fff;
+  z-index: 2;
+}
+.imgTag {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  background: #181818cc;
+  color: #fff;
+  border-radius: 8px;
+  padding: 3px 10px;
+  font-size: 0.93rem;
+  box-shadow: 0 0 6px #fff;
+}
+@media (max-width: 900px) {
+  .mosaic {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .mosaic {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+}
