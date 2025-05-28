@@ -1,13 +1,17 @@
-import NavBar from '../components/NavBar/NavBar'
 import BookingSection from '../components/Booking/BookingSection'
-import Footer from '../components/Footer/Footer'
+import Head from 'next/head'
+import styles from '../styles/BookingPage.module.scss'
 
 export default function BookingPage() {
   return (
     <>
-      <NavBar />
-      <BookingSection />
-      <Footer />
+      <Head>
+        <title>Booking | RAYZEN</title>
+        <meta name="description" content="Book RAYZEN for your event" />
+      </Head>
+      <main className={styles.main}>
+        <BookingSection />
+      </main>
     </>
   )
 }

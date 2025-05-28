@@ -1,13 +1,14 @@
-import NavBar from '../components/NavBar/NavBar'
 import SkillsSection from '../components/Skills/SkillsSection'
-import Footer from '../components/Footer/Footer'
+import Head from 'next/head'
 
 export default function SkillsPage() {
   return (
     <>
-      <NavBar />
+      <Head>
+        <title>Skills | RAYZEN</title>
+        <meta name="description" content="DJ RAYZEN's Skills and Expertise" />
+      </Head>
       <SkillsSection />
-      <Footer />
     </>
   )
 }

@@ -53,6 +53,18 @@
   font-weight: 300;
   line-height: 1.6;
 }
+.container {
+  h2 {
+    font-family: var(--font-display);
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+}
 @media (max-width: 900px) {
   .content {
     flex-direction: column;

@@ -1,13 +1,14 @@
-import NavBar from '../components/NavBar/NavBar'
 import LiveSetsSection from '../components/LiveSets/LiveSetsSection'
-import Footer from '../components/Footer/Footer'
+import Head from 'next/head'
 
 export default function LiveSetsPage() {
   return (
     <>
-      <NavBar />
+      <Head>
+        <title>Live Sets | RAYZEN</title>
+        <meta name="description" content="RAYZEN's Live Sets" />
+      </Head>
       <LiveSetsSection />
-      <Footer />
     </>
   )
 }

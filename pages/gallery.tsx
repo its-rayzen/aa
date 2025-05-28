@@ -1,13 +1,14 @@
-import NavBar from '../components/NavBar/NavBar'
+import Head from 'next/head'
 import GallerySection from '../components/Gallery/GallerySection'
-import Footer from '../components/Footer/Footer'
 
 export default function GalleryPage() {
   return (
     <>
-      <NavBar />
+      <Head>
+        <title>Gallery | RAYZEN</title>
+        <meta name="description" content="Photo Gallery of RAYZEN performances" />
+      </Head>
       <GallerySection />
-      <Footer />
     </>
   )
 }

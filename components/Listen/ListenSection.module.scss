@@ -2,6 +2,7 @@
   background: #0D0D0D;
   color: #E0E0E0;
 }
+
 .title {
   font-size: 2.1rem;
   letter-spacing: 0.08em;
@@ -34,6 +35,7 @@
   overflow: hidden;
   cursor: pointer;
 }
+
 .card:hover, .card:focus {
   box-shadow: 0 0 28px #fff, 0 0 12px #fff;
   z-index: 2;
@@ -61,6 +63,7 @@
   margin-bottom: 6px;
   font-size: 0.95rem;
 }
+
 .genre {
   color: #fff;
   font-weight: 500;
@@ -70,17 +73,19 @@
   box-shadow: 0 0 7px #fff;
   letter-spacing: 0.04em;
 }
+
 .note {
   color: #A0A0A0;
   font-style: italic;
 }
 
 .heading {
-  margin: 0 0 10px 0;
-  font-size: 1.13rem;
+  margin: 14px 0 0px 1px; /* Small margin-bottom and margin-left */
+  font-size: 1.5rem;
   color: #fff;
   font-weight: 600;
   text-shadow: 0 0 6px #fff;
+  text-transform: none;
 }
 
 .waveform {
@@ -91,11 +96,26 @@
   align-items: center;
   justify-content: flex-start;
 }
+
 .waveformImg {
   width: 100%;
   height: 100%;
   object-fit: contain;
   filter: grayscale(1) brightness(1.06) contrast(1.2);
+}
+
+.iconWrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  color: #E0E0E0; /* Adjust color to match your theme */
 }
 
 @media (max-width: 950px) {

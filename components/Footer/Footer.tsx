@@ -1,5 +1,10 @@
+import { ReactNode, useEffect, useState } from 'react'
 import styles from './Footer.module.scss'
 import { FaInstagram, FaSoundcloud, FaYoutube, FaTiktok } from 'react-icons/fa'
+
+interface LayoutProps {
+  children: ReactNode;
+}
 
 const socials = [
   {
@@ -24,9 +29,33 @@ const socials = [
   }
 ]
 
-export default function Footer() {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <footer className={styles.footer}>
+    <div className={styles.layout}>
+      <main className={styles.main}>
+        {children}
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+function Footer() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolledToBottom = 
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+      setIsVisible(scrolledToBottom)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <footer className={`${styles.footer} ${isVisible ? styles.visible : ''}`}>
       <div className={styles.socials}>
         {socials.map(s => (
           <a

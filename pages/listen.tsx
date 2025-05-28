@@ -1,13 +1,14 @@
-import NavBar from '../components/NavBar/NavBar'
 import ListenSection from '../components/Listen/ListenSection'
-import Footer from '../components/Footer/Footer'
+import Head from 'next/head'
 
 export default function ListenPage() {
   return (
     <>
-      <NavBar />
+      <Head>
+        <title>Listen | RAYZEN</title>
+        <meta name="description" content="Listen to RAYZEN's Music" />
+      </Head>
       <ListenSection />
-      <Footer />
     </>
   )
 }

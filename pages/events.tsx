@@ -1,13 +1,14 @@
-import NavBar from '../components/NavBar/NavBar'
 import EventsSection from '../components/Events/EventsSection'
-import Footer from '../components/Footer/Footer'
+import Head from 'next/head'
 
 export default function EventsPage() {
   return (
     <>
-      <NavBar />
+      <Head>
+        <title>Events | RAYZEN</title>
+        <meta name="description" content="Upcoming events and performances" />
+      </Head>
       <EventsSection />
-      <Footer />
     </>
   )
 }

@@ -1,13 +1,14 @@
-import NavBar from '../components/NavBar/NavBar'
+import Head from 'next/head'
 import AboutSection from '../components/About/AboutSection'
-import Footer from '../components/Footer/Footer'
 
 export default function AboutPage() {
   return (
     <>
-      <NavBar />
+      <Head>
+        <title>About | RAYZEN</title>
+        <meta name="description" content="Learn more about DJ RAYZEN" />
+      </Head>
       <AboutSection />
-      <Footer />
     </>
   )
 }
