@@ -1,3 +1,16 @@
+html, body, * {
+  scrollbar-width: none !important;      /* Firefox */
+  -ms-overflow-style: none !important;   /* IE and Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  display: none !important;
+}
 @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap');
@@ -28,6 +41,15 @@ html, body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Custom scrollbar: visually hidden but scrollable */
+  scrollbar-width: thin;         /* For Firefox */
+  scrollbar-color: #222 #0D0D0D; /* For Firefox */
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar, *::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 
 body {
