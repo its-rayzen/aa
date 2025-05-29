@@ -1,5 +1,5 @@
 import styles from './AboutSection.module.scss'
-import { motion, AnimatePresence } from 'framer-motion'
+// Removed framer-motion for no animation
 import { useRouter } from 'next/router'
 
 interface AboutSectionProps {
@@ -11,10 +11,7 @@ export default function AboutSection({ showButton = true, onLiveSetsClick }: Abo
   return (
     <section className={styles.about} id="about">
       <div className={styles.content}>
-        <motion.div
-          initial={{ x: -60, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+        <div
           className={styles.left}
           style={{
             alignItems: 'flex-start',
@@ -53,12 +50,8 @@ export default function AboutSection({ showButton = true, onLiveSetsClick }: Abo
               }}
             />
           </div>
-        </motion.div>
-        <motion.div
-          initial={{ x: 60, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className={styles.right}
+        </div>
+        <div className={styles.right}
         >
           <blockquote className={styles.quote}>
             “This isn’t just music — it’s a livewire moment, every time.”
@@ -69,24 +62,17 @@ export default function AboutSection({ showButton = true, onLiveSetsClick }: Abo
             With an acute ear for what moves both the body and the soul, RAYZEN curates each set with intention balancing underground appeal with accessible energy that keeps audiences locked in from start to finish. Whether opening, closing, or peaking a night, RAYZEN adapts to the moment and owns it, delivering a presence that fills the room and resonates long after the last track. For promoters and venues seeking a DJ who brings both skill and story, precision and passion RAYZEN is not just a booking, but a statement.
           </p>
           <div style={{ minHeight: 48, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <AnimatePresence initial={false}>
-              <motion.div
-                style={{ width: 'auto', display: 'flex', justifyContent: 'center' }}
-                initial={false}
-                animate={{ opacity: showButton ? 1 : 0, y: showButton ? 12 : 30 }}
-                transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
+            {showButton && (
+              <button
+                className={styles.bookNowBtn}
+                style={{ visibility: showButton ? 'visible' : 'hidden' }}
+                onClick={onLiveSetsClick}
               >
-                <button
-                  className={styles.bookNowBtn}
-                  style={{ visibility: showButton ? 'visible' : 'hidden' }}
-                  onClick={onLiveSetsClick}
-                >
-                  Live Mixes
-                </button>
-              </motion.div>
-            </AnimatePresence>
+                Live Mixes
+              </button>
+            )}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -1,5 +1,6 @@
 .about {
-  background: #0D0D0D;
+  background: #f01717;
+  margin-top: 44px;
   color: #E0E0E0;
 }
 .content {
@@ -9,10 +10,11 @@
   gap: 40px; // increase space between picture and text a bit more
   max-width: 1100px;
   margin: 0 auto;
+  
   flex-wrap: wrap;
-  min-height: 100vh; // Restore min-height for full viewport height
+  min-height: 82.5vh; // Restore min-height for full viewport height
   padding: 64px 0; // Add some vertical padding instead
-  transform: translateY(-13vh); // push everything up slightly (was -10vh or -15vh before)
+  transform: translateY(-10vh); // push everything up slightly (was -10vh or -15vh before)
   /* Remove min-height and height so content doesn't force full viewport height */
   /* min-height: 100vh; */
   /* height: 100vh; */

@@ -1,12 +1,13 @@
 .skills {
-  background: #0D0D0D;
+  background: #ff0000;
+  margin-top:44px;
   color: #E0E0E0;
-  min-height: 100vh; // Changed from calc(100vh - var(--nav-height))
+  min-height: 93vh; // Changed from calc(100vh - var(--nav-height))
   display: flex;
   align-items: center;
   justify-content: center; // Added to center content vertically
   padding: 6rem 2rem; // Increased padding to account for nav
-  margin-top: -80px; // Add negative margin to offset navbar height
+ // Add negative margin to offset navbar height
 
   .content {
     width: 100%;
@@ -16,6 +17,7 @@
     gap: 4rem;
     align-items: center;
     padding-top: 80px; // Add padding to prevent content from going under navbar
+    transform: translateY(-17vh); // Move content down by 10% of viewport height
 
     @media (max-width: 768px) {
       flex-direction: column;

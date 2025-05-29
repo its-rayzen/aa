@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(2, 2, 5, 0.98);
+  background: rgba(5, 2, 2, 0.98);
   z-index: 2;
   pointer-events: none;
   backdrop-filter: blur(2.5px);
@@ -41,8 +41,10 @@
   100% { transform: rotate(360deg); }
 }
 .liveSets {
-  background: #0D0D0D;
+  background: #ff0000;
   color: #E0E0E0;
+  margin-top: 44px;
+  height: 93vh;
 }
 .title {
   font-size: 2.1rem;

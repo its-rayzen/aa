@@ -1,6 +1,6 @@
 
 import styles from './LiveSetsSection.module.scss'
-import { motion } from 'framer-motion'
+// Removed framer-motion for no animation
 import React, { useEffect, useState } from 'react';
 
 const sets = [
@@ -52,13 +52,9 @@ export default function LiveSetsSection() {
       <h2 className={styles.title}>Live Sets</h2>
       <div className={styles.grid}>
         {sets.map((set, idx) => (
-          <motion.div
+          <div
             className={styles.card}
             key={set.title}
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: idx * 0.09 }}
           >
             <div className={styles.player}>
               <iframe
@@ -86,7 +82,7 @@ export default function LiveSetsSection() {
             </div>
             <h3>{set.title}</h3>
             <p className={styles.desc}>{set.description}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

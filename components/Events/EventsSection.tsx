@@ -1,5 +1,5 @@
 import styles from './EventsSection.module.scss'
-import { motion } from 'framer-motion'
+// Removed framer-motion for no animation
 
 const events = [
   {
@@ -34,13 +34,9 @@ export default function EventsSection() {
       <h2 className={styles.title}>Events</h2>
       <div className={styles.timeline}>
         {events.map((event, idx) => (
-          <motion.div
+          <div
             className={styles.eventCard}
             key={event.name + event.date}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: idx * 0.15 }}
           >
             <div className={styles.flyer}>
               {event.flyer ? (
@@ -62,7 +58,7 @@ export default function EventsSection() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

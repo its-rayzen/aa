@@ -9,6 +9,8 @@ import SPALiveSetsSection from '../components/Sections/LiveSetsSection';
 import SPASkillsSection from '../components/Sections/SkillsSection';
 import SPANavBar from '../components/NavBar/SPANavBar';
 import SPAMobileMenu from '../components/NavBar/SPAMobileMenu';
+
+import Footer from '../components/Footer/Footer';
 import navStyles from '../components/NavBar/NavBar.module.scss';
 
 
@@ -40,6 +42,7 @@ export default function SPAApp() {
       <div style={{ minHeight: '60vh' }}>
         {sections.find(s => s.key === section)?.component}
       </div>
+      <Footer />
     </div>
   );
 }

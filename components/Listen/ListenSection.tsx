@@ -1,5 +1,5 @@
 import styles from './ListenSection.module.scss'
-import { motion } from 'framer-motion'
+// Removed framer-motion for no animation
 
 const tracks = [
   {
@@ -71,13 +71,9 @@ export default function ListenSection() {
       <h2 className={styles.title}>MIXES · REMIXES · EDITS</h2>
       <div className={styles.grid}>
         {tracks.map((track, idx) => (
-          <motion.div
+          <div
             className={styles.card}
             key={track.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: idx * 0.09 }}
           >
             <div className={styles.player}>
               <iframe
@@ -116,7 +112,7 @@ export default function ListenSection() {
               </div>
               <h3 className={styles.heading}>{track.title}</h3>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
