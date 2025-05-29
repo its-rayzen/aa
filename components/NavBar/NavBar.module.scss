@@ -31,6 +31,15 @@
   }
 }
 
+
+.desktopNav {
+  display: flex;
+}
+.mobileNav {
+  display: none;
+}
+
+
 .links {
   display: flex;
   gap: 42px;
@@ -83,11 +92,153 @@
 }
 
 @media (max-width: 768px) {
-  .links {
-    gap: 24px;
+  .desktopNav {
+    display: none !important;
+  }
+  .mobileNav {
+    display: flex !important;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .nav {
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: flex-end;
   }
 
-  .link {
-    font-size: 0.9rem;
+  .menuList {
+    list-style: none;
+    margin: 0;
+    padding: 0 24px; // Increased horizontal padding
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px !important; // Even more space between items for better separation
+    margin-top: 72px !important;
   }
+
+  .menuLink {
+    color: #fff !important;
+    font-size: 1.15rem !important;
+    font-family: var(--font-primary) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    cursor: pointer !important;
+    transition:
+      color 0.18s,
+      background 0.18s,
+      box-shadow 0.18s !important;
+    width: 100% !important; // Use 100% width not 100vw
+    padding: 18px 20px !important; // Even padding all around
+    box-sizing: border-box !important;
+    text-align: left !important;
+    position: relative !important;
+    border: none !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,0.04) !important;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1) !important;
+    
+    &:hover,
+    &:focus {
+      color: #fff !important;
+      background: rgba(255,255,255,0.1) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3), 
+                 inset 0 0 0 1px rgba(255,255,255,0.2) !important;
+      outline: none;
+    }
+    
+    &::before {
+      display: none; // Remove the line effect for cleaner mobile look
+    }
+  }
+  
+  .menuLink:first-child {
+    margin-top: 8px !important;
+  }
+
+  .menuSectionHeader {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: rgba(255,255,255,0.5) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    margin: 24px 8px 8px 8px !important;
+    padding: 0 !important;
+  }
+}
+
+// --- Mobile Menu Styles ---
+.mobileMenuWrapper {
+  display: flex;
+  align-items: center;
+}
+.menuButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: var(--font-primary);
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 18px;
+  border-radius: 7px;
+  transition: background 0.2s;
+  z-index: 120;
+}
+.menuButton:active, .menuButton:focus {
+  background: none;
+}
+.menuLogo {
+  font-size: 1.2em;
+  letter-spacing: 0.18em;
+  font-family: var(--font-primary);
+  color: #fff;
+  text-shadow: 0 0 8px #fff8, 0 0 18px #fff4;
+}
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10,10,15,0.98);
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  animation: fadeInMenu 0.35s cubic-bezier(0.4,0,0.2,1);
+  padding: 0;
+}
+@keyframes fadeInMenu {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.menuNav {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.menuClose {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.2rem;
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  cursor: pointer;
+  z-index: 130;
 }

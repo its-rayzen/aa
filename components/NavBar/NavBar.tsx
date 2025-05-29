@@ -1,6 +1,7 @@
+import styles from './NavBar.module.scss'
+import MobileMenu from './MobileMenu'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import styles from './NavBar.module.scss'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -18,16 +19,21 @@ export default function NavBar() {
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.links}>
-        {links.map(({ href, label }) => (
-          <Link
-            key={href}
-            href={href}
-            className={`${styles.link} ${router.pathname === href ? styles.active : ''}`}
-          >
-            {label}
-          </Link>
-        ))}
+      <div className={styles.desktopNav}>
+        <div className={styles.links}>
+          {links.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`${styles.link} ${router.pathname === href ? styles.active : ''}`}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className={styles.mobileNav}>
+        <MobileMenu />
       </div>
     </nav>
   )

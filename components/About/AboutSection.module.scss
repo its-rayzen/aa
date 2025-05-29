@@ -4,44 +4,67 @@
 }
 .content {
   display: flex;
-  align-items: center;
+  align-items: center; // center vertically
   justify-content: center;
-  gap: 48px;
+  gap: 40px; // increase space between picture and text a bit more
   max-width: 1100px;
   margin: 0 auto;
   flex-wrap: wrap;
-  height: 100vh;
+  min-height: 100vh; // Restore min-height for full viewport height
+  padding: 64px 0; // Add some vertical padding instead
+  transform: translateY(-13vh); // push everything up slightly (was -10vh or -15vh before)
+  /* Remove min-height and height so content doesn't force full viewport height */
+  /* min-height: 100vh; */
+  /* height: 100vh; */
+  /* No sticky or fixed footer here; let the page flow naturally */
 }
 .left {
   flex: 1 1 320px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; // push picture up
+  margin-right: 20px; // add a little more space between image and text
 }
 .imgGlow {
-  border-radius: 100%;
+  border-radius: 1rem !important;
   overflow: hidden;
-  box-shadow: 0 0 16px #fff, 0 0 48px #fff88;
-  border: 3px solid #fff;
-  width: 270px;
-  height: 270px;
+  /* Neon border effect */
+  box-shadow:
+    0 0 24px #fff, 
+    0 0 24px rgb(255, 255, 255), 
+    0 0 65px rgb(255, 255, 255), 
+    0 0 8px #fff,
+    0 0 0 24px rgb(255, 255, 255) inset;
+  border: none !important;
+  width: 458px !important; // 432px * 1.06 = 458px
+  height: 458px !important;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #101010;
+  margin: 0 auto !important;
 }
 .imgGlow img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: grayscale(1) contrast(1.1);
+  border-radius: 1rem !important;
 }
 .right {
   flex: 2 1 350px;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // center text vertically with image
+  align-items: flex-start;
+  margin-left: 20px; // add a little more space between text and image
+  padding-top: 32px; // push text slightly down
+  font-size: 0.85rem; // further downscale text
+  position: relative; // allow absolute positioning for button
 }
 .quote {
-  font-size: 1.25rem;
+  font-size: 1rem; // further downscale
   color: #fff;
   filter: drop-shadow(0 0 8px #fff);
   margin: 0 0 18px 0;
@@ -49,9 +72,55 @@
 }
 .bio {
   color: #E0E0E0;
-  font-size: 1.1rem;
+  font-size: 0.93rem; // further downscale
   font-weight: 300;
   line-height: 1.6;
+}
+.bookNowBtn {
+  margin-top: 14px;
+  min-height: 38px;
+  padding: 4.5px 31px; // upscale by ~12%
+  font-size: 0.84rem; // upscale by 12%
+  font-family: var(--font-heading), var(--font-primary), sans-serif;
+  font-weight: 400;
+  color: #fff;
+  background: linear-gradient(90deg, #0a0a0a 0%, #181818 100%);
+  border: 0.5px solid #fff;
+  border-radius: 2px; // slightly more rounded for neon effect
+  box-shadow:
+    0 0 12px #fff,
+    0 0 24px #fff,
+    0 0 4px #fff;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow:
+    0 0 3px #fff,
+    0 0 6px #fff;
+  text-shadow: none;
+  transition:
+    background 0.18s,
+    color 0.18s,
+    box-shadow 0.18s,
+    text-shadow 0.18s;
+}
+
+.bookNowBtn:hover,
+.bookNowBtn:focus {
+  background: linear-gradient(90deg, #181818 0%, #222 100%);
+  color: #fff;
+  box-shadow:
+    0 0 24px #fff,
+    0 0 48px #fff,
+    0 0 12px #fff;
+  text-shadow: 0 0 16px #fff, 0 0 32px #fff;
 }
 .container {
   h2 {
@@ -69,9 +138,18 @@
   .content {
     flex-direction: column;
     gap: 32px;
+    align-items: center;
+    /* min-height: unset; */
+    /* height: unset; */
+    /* Remove the transform on mobile for better fit */
+    transform: none;
   }
   .imgGlow {
-    width: 180px;
-    height: 180px;
+    width: 276px !important; // 260px * 1.06 = 276px
+    height: 276px !important;
+  }
+  .left,
+  .right {
+    margin: 0 !important;
   }
 }

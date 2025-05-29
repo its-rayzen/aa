@@ -1,5 +1,7 @@
+
 import styles from './LiveSetsSection.module.scss'
 import { motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react';
 
 const sets = [
   {
@@ -20,6 +22,31 @@ const sets = [
 ]
 
 export default function LiveSetsSection() {
+  const [showOverlay, setShowOverlay] = useState(Array(sets.length).fill(true));
+
+  useEffect(() => {
+    const timers = sets.map((_, idx) =>
+      setTimeout(() => {
+        setShowOverlay(prev => {
+          const copy = [...prev];
+          copy[idx] = false;
+          return copy;
+        });
+      }, 400)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  const handleLoad = (idx: number) => {
+    setTimeout(() => {
+      setShowOverlay(prev => {
+        const copy = [...prev];
+        copy[idx] = false;
+        return copy;
+      });
+    }, 400);
+  };
+
   return (
     <section className={styles.liveSets} id="livesets">
       <h2 className={styles.title}>Live Sets</h2>
@@ -42,7 +69,20 @@ export default function LiveSetsSection() {
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
+                onLoad={() => handleLoad(idx)}
+                style={{
+                  filter: showOverlay[idx]
+                    ? 'blur(8px) brightness(0.5)'
+                    : 'blur(0px) brightness(1)',
+                  transition: 'filter 3.5s cubic-bezier(0.4,0,0.2,1)',
+                  borderRadius: 7
+                }}
               />
+              <div
+                className={styles.overlay + (showOverlay[idx] ? ' ' + styles.overlayVisible : ' ' + styles.overlayHidden)}
+              >
+                <div className={styles.spinner}></div>
+              </div>
             </div>
             <h3>{set.title}</h3>
             <p className={styles.desc}>{set.description}</p>
