@@ -1,5 +1,3 @@
-import styles from '../styles/globals.scss';
-
 export default function SplashScreen() {
   return (
     <div style={{

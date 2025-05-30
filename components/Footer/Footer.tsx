@@ -1,10 +1,6 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Footer.module.scss'
 import { FaInstagram, FaSoundcloud, FaYoutube, FaTiktok } from 'react-icons/fa'
-
-interface LayoutProps {
-  children: ReactNode;
-}
 
 const socials = [
   {
@@ -29,18 +25,7 @@ const socials = [
   }
 ]
 
-export default function Layout({ children }: LayoutProps) {
-  return (
-    <div className={styles.layout}>
-      <main className={styles.main}>
-        {children}
-      </main>
-      <Footer />
-    </div>
-  )
-}
-
-function Footer() {
+export default function Footer() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {

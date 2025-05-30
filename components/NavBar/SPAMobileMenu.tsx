@@ -3,12 +3,12 @@ import styles from './NavBar.module.scss';
 
 const links = [
   { key: 'home', label: 'Home' },
-  { key: 'about', label: 'About' },
-  { key: 'skills', label: 'Skills' },
   { key: 'events', label: 'Events' },
-  { key: 'gallery', label: 'Gallery' },
   { key: 'listen', label: 'Listen' },
   { key: 'livesets', label: 'Live Sets' },
+  { key: 'gallery', label: 'Gallery' },
+  { key: 'about', label: 'About' },
+  { key: 'skills', label: 'Skills' },
   { key: 'booking', label: 'Booking' },
 ];
 

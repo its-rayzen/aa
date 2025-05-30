@@ -1,8 +1,7 @@
 
 import styles from './AboutSection.module.scss';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useSectionInView } from './useSectionInView';
 
 interface AboutSectionProps {
   showButton?: boolean;
@@ -12,11 +11,6 @@ interface AboutSectionProps {
 export default function AboutSection({ showButton = true, onLiveSetsClick }: AboutSectionProps) {
   // State to control the animation sequence
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
-
-  // Scroll-driven animation hooks for each section
-  const [storyRef, storyInView] = useSectionInView<HTMLDivElement>();
-  const [moreRef, moreInView] = useSectionInView<HTMLDivElement>();
-  const [visionRef, visionInView] = useSectionInView<HTMLDivElement>();
 
   // Animation variants for sections
   const variants = {
@@ -54,10 +48,9 @@ export default function AboutSection({ showButton = true, onLiveSetsClick }: Abo
 
       {/* STORY */}
       <motion.div
-        ref={storyRef}
         className={styles.content}
         initial="hiddenRight"
-        animate={logoAnimationComplete && storyInView ? 'visible' : 'hiddenRight'}
+        animate={logoAnimationComplete ? 'visible' : 'hiddenRight'}
         variants={variants}
         style={{ zIndex: 3 }}
       >
@@ -77,10 +70,9 @@ export default function AboutSection({ showButton = true, onLiveSetsClick }: Abo
 
       {/* MORE THAN DJ */}
       <motion.div
-        ref={moreRef}
         className={styles.content + ' ' + styles.duplicateContent}
         initial="hiddenLeft"
-        animate={logoAnimationComplete && moreInView ? 'visible' : 'hiddenLeft'}
+        animate={logoAnimationComplete ? 'visible' : 'hiddenLeft'}
         variants={variants}
         style={{ zIndex: 2 }}
       >
@@ -100,10 +92,9 @@ export default function AboutSection({ showButton = true, onLiveSetsClick }: Abo
 
       {/* VISION */}
       <motion.div
-        ref={visionRef}
         className={styles.content + ' ' + styles.duplicateContent}
         initial="hiddenRight"
-        animate={logoAnimationComplete && visionInView ? 'visible' : 'hiddenRight'}
+        animate={logoAnimationComplete ? 'visible' : 'hiddenRight'}
         variants={variants}
         style={{ zIndex: 1 }}
       >
